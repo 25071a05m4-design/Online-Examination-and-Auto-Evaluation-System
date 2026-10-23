@@ -1,6 +1,33 @@
-bin/
+﻿# Compiled Java files
 *.class
+
+# Build output directories
+bin/
+build/
+out/
+target/
+
+# IDE metadata and temporary workspace files
 .metadata/
 .settings/
+*.tmp
+*.bak
+*~
+
+# Application logs
+*.log
+logs/
+
+# Operating system files
 .DS_Store
 Thumbs.db
+Desktop.ini
+
+# Local environment and secret configuration
+.env
+.env.*
+!.env.example
+
+# Local database exports and backups
+*.bak
+*.dump
