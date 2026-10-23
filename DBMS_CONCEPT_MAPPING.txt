@@ -1,0 +1,101 @@
+DBMS CONCEPT MAPPING FOR VIVA
+=============================
+
+1. ER MODEL
+   STUDENT, EXAM, QUESTION, QUESTION_OPTION, EXAM_ATTEMPT,
+   STUDENT_ANSWER and RESULT are entities/tables.
+
+2. RELATIONSHIPS
+   STUDENT 1:N EXAM_ATTEMPT
+   EXAM 1:N QUESTION
+   QUESTION 1:N QUESTION_OPTION
+   EXAM_ATTEMPT 1:N STUDENT_ANSWER
+   EXAM_ATTEMPT 1:1 RESULT
+
+3. PRIMARY KEY
+   Every main table has a primary key.
+
+4. FOREIGN KEY
+   Used to connect related tables and maintain referential integrity.
+
+5. NORMALIZATION
+   Question options are stored separately instead of A/B/C/D columns
+   inside QUESTION. This reduces repeating groups and supports a
+   normalized design.
+
+6. DDL
+   CREATE TABLE, ALTER TABLE, CREATE INDEX, CREATE VIEW.
+
+7. DML
+   INSERT, UPDATE, DELETE.
+
+8. JOINS
+   Java report and SQL*Plus report join STUDENT, EXAM_ATTEMPT,
+   EXAM and RESULT.
+
+9. AGGREGATE FUNCTIONS
+   COUNT, AVG, MAX, MIN.
+
+10. SUBQUERY
+    Score greater than average score.
+
+11. CTE
+    WITH exam_summary AS (...)
+
+12. WINDOW FUNCTION
+    RANK() OVER (ORDER BY score DESC).
+
+13. VIEW
+    STUDENT_RESULT_REPORT.
+
+14. FUNCTION
+    GET_PERCENTAGE.
+
+15. PROCEDURE
+    GET_STUDENT_RESULTS.
+
+16. CURSOR
+    SHOW_STUDENT_SUMMARY uses an explicit cursor.
+
+17. TRIGGER
+    TRG_RESULT_AUDIT automatically inserts an audit record
+    whenever a RESULT row is inserted.
+
+18. INDEX
+    Indexes are created on foreign-key/search columns.
+
+19. TRANSACTION
+    Exam submission uses JDBC:
+       setAutoCommit(false)
+       INSERT answers
+       UPDATE attempt
+       INSERT result
+       COMMIT
+
+    If an error occurs:
+       ROLLBACK
+
+20. ACID
+    Atomicity: exam submission is all-or-nothing.
+    Consistency: constraints preserve valid data.
+    Isolation: Oracle transaction isolation controls concurrent work.
+    Durability: COMMIT permanently saves the transaction.
+
+21. SQL INJECTION
+    Login and other SQL operations use PreparedStatement with ? parameters.
+
+22. AUTO-EVALUATION
+    Java retrieves the correct option from QUESTION_OPTION,
+    compares it with the student's selected option,
+    stores IS_CORRECT, and creates RESULT.
+
+23. JAVA CONCEPTS
+    Abstract class: User
+    Inheritance: Student/Admin extend User
+    Method overriding: getRoleMessage()
+    Encapsulation: private fields in model classes
+    Inner class: Question.Option
+    Collections: List<Question>
+    Exception handling: try/catch
+    Swing event handling: ActionListener/lambda
+    JDBC: Connection, PreparedStatement, ResultSet
