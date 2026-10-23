@@ -328,3 +328,10 @@ Replace the placeholders with your team's names and their actual contributions.
 
 Add the appropriate license information if the project is being distributed publicly.
 
+My Contribution
+
+I contributed to the Online Examination and Auto-Evaluation System
+by improving the project documentation. This system helps students
+take online examinations and receive automatically evaluated results.
+It uses Java, Swing, JDBC, and Oracle Database.
+
